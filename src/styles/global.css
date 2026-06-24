@@ -223,7 +223,7 @@ img {
   transform: translateY(-1px);
 }
 
-.nav-social-links svg {
+.nav-social-links .social-icon {
   width: 1.08rem;
   height: 1.08rem;
   fill: none;
@@ -231,16 +231,12 @@ img {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.8;
+  overflow: visible;
 }
 
-.nav-social-links path {
-  fill: currentColor;
-  stroke: none;
-}
-
-.nav-social-links circle,
-.nav-social-links rect {
-  fill: none;
+.nav-social-links .social-icon-tripadvisor {
+  width: 1.32rem;
+  height: 0.98rem;
 }
 
 .header-actions {
@@ -1098,7 +1094,7 @@ p {
   line-height: 1;
 }
 
-.footer-social-icon svg {
+.footer-social-icon .social-icon {
   width: 0.92rem;
   height: 0.92rem;
   fill: none;
@@ -1106,16 +1102,24 @@ p {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.8;
+  overflow: visible;
 }
 
-.footer-social-icon path {
+.footer-social-icon .social-icon-tripadvisor {
+  width: 1.08rem;
+  height: 0.82rem;
+}
+
+.social-icon .icon-fill {
   fill: currentColor;
   stroke: none;
 }
 
-.footer-social-icon circle,
-.footer-social-icon rect {
+.social-icon .icon-line {
   fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 @media (max-width: 1120px) {

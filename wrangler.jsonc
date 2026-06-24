@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "tabanco-ole-tu",
+  "name": "tabancooletu",
   "compatibility_date": "2026-06-24",
   "pages_build_output_dir": "./dist"
 }
