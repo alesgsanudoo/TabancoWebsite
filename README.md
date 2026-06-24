@@ -14,6 +14,7 @@
     <img src="https://img.shields.io/badge/Astro-static-0A4F36" alt="Astro static site" />
     <img src="https://img.shields.io/badge/Cloudflare%20Pages-ready-D9B66F" alt="Cloudflare Pages ready" />
     <img src="https://img.shields.io/badge/i18n-ES%20%7C%20EN-7671A6" alt="Spanish and English content" />
+    <img src="https://img.shields.io/badge/license-MIT-173C2C" alt="MIT License" />
   </p>
 </div>
 
@@ -128,3 +129,7 @@ PRODUCT.md
 ```
 
 The design uses deep tabanco green, warm cream backgrounds, pale sherry-gold details, sage botanical decoration, and lavender grape accents.
+
+## License
+
+Released under the [MIT License](./LICENSE).
