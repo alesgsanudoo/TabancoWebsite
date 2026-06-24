@@ -1,0 +1,20 @@
+---
+import { defaultLanguage, translations } from "../data/site";
+
+const t = translations[defaultLanguage];
+---
+
+<section class="intro-section section-shell" aria-labelledby="about-title" id="quienes-somos">
+  <div class="intro-layout">
+    <div class="intro-copy">
+      <span class="section-label" data-i18n="nav.about">{t.nav.about}</span>
+      <h2 id="about-title" data-i18n="about.title">{t.about.title}</h2>
+      <p data-i18n="about.body">{t.about.body}</p>
+      <p class="intro-pull" data-i18n="about.pull">{t.about.pull}</p>
+    </div>
+
+    <div class="about-mark" aria-hidden="true">
+      <img src="/decor/botella.png" alt="" loading="lazy" />
+    </div>
+  </div>
+</section>

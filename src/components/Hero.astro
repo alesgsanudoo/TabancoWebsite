@@ -1,0 +1,39 @@
+---
+import { defaultLanguage, menuUrl, translations } from "../data/site";
+
+const t = translations[defaultLanguage];
+---
+
+<section class="hero-section" aria-labelledby="hero-title" id="inicio">
+  <div class="hero-shell">
+    <div class="hero-copy-panel">
+      <p class="hero-eyebrow" data-i18n="hero.eyebrow">{t.hero.eyebrow}</p>
+      <h1 id="hero-title" class="hero-title-lockup">
+        <img src="/tabanco-title.png" alt="Tabanco Olé Tú" width="1941" height="1211" />
+      </h1>
+      <p class="hero-lede" data-i18n="hero.lede">{t.hero.lede}</p>
+      <div class="hero-actions" aria-label="Primary actions">
+        <a
+          class="button button-primary"
+          href={menuUrl}
+          target="_blank"
+          rel="noreferrer"
+          data-i18n="hero.discover"
+        >
+          {t.hero.discover}
+        </a>
+        <a class="button button-secondary button-call" href="tel:+34611129545" data-i18n="hero.reserve">
+          {t.hero.reserve}
+        </a>
+        <a class="button button-secondary" href="#ubicacion" data-i18n="hero.visit">
+          {t.hero.visit}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-ribbon">
+    <span data-i18n="hero.note">{t.hero.note}</span>
+    <span data-i18n="footer.line">{t.footer.line}</span>
+  </div>
+</section>

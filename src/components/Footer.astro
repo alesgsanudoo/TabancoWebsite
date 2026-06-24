@@ -1,0 +1,45 @@
+---
+import SocialIcon from "./SocialIcon.astro";
+import { defaultLanguage, socialLinks, translations } from "../data/site";
+
+const t = translations[defaultLanguage];
+---
+
+<footer class="site-footer">
+  <img class="footer-decoration footer-decoration-vine" src="/decor/img7.png" alt="" aria-hidden="true" />
+  <img class="footer-decoration footer-decoration-wine" src="/decor/vino.png" alt="" aria-hidden="true" />
+
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/tabanco-title.png" alt="Tabanco Olé Tú" width="1941" height="1211" />
+      <p data-i18n="footer.line">{t.footer.line}</p>
+    </div>
+
+    <address class="footer-block">
+      <span data-i18n="visit.addressLabel">{t.visit.addressLabel}</span>
+      <strong data-i18n="visit.address">{t.visit.address}</strong>
+    </address>
+
+    <div class="footer-block">
+      <span data-i18n="contact.phoneLabel">{t.contact.phoneLabel}</span>
+      <a href="tel:+34611129545" data-i18n="contact.phoneOne">{t.contact.phoneOne}</a>
+      <a href="tel:+34693327690" data-i18n="contact.phoneTwo">{t.contact.phoneTwo}</a>
+    </div>
+
+    <div class="footer-block footer-actions">
+      <a href="tel:+34611129545" data-i18n="contact.action">{t.contact.action}</a>
+      <div class="footer-social-links" aria-label={t.contact.socialTitle} data-i18n-attr="aria-label:contact.socialTitle">
+        {
+          socialLinks.map((link) => (
+            <a class="footer-social-link" href={link.href} target="_blank" rel="noreferrer" aria-label={link.label} title={link.label}>
+              <span class="footer-social-icon" aria-hidden="true">
+                <SocialIcon label={link.label} />
+              </span>
+              <span class="footer-social-label">{link.label}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</footer>

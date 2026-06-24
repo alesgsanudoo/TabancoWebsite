@@ -1,0 +1,52 @@
+---
+import { defaultLanguage, translations } from "../data/site";
+---
+
+<script define:vars={{ defaultLanguage, translations }}>
+  const getValue = (source, key) =>
+    key.split(".").reduce((value, part) => (value ? value[part] : undefined), source);
+
+  const applyLanguage = (language) => {
+    const dictionary = translations[language] ?? translations[defaultLanguage];
+    document.documentElement.lang = language;
+    document.title = dictionary.meta.title;
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const value = getValue(dictionary, element.getAttribute("data-i18n"));
+      if (typeof value === "string") {
+        element.textContent = value;
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-attr]").forEach((element) => {
+      const valueMap = element.getAttribute("data-i18n-attr");
+      if (!valueMap) {
+        return;
+      }
+
+      valueMap.split(",").forEach((entry) => {
+        const [attribute, key] = entry.split(":");
+        const value = getValue(dictionary, key);
+        if (attribute && typeof value === "string") {
+          element.setAttribute(attribute, value);
+        }
+      });
+    });
+
+    document.querySelectorAll("[data-lang-button]").forEach((button) => {
+      const isActive = button.getAttribute("data-lang-button") === language;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+
+    window.localStorage.setItem("tabanco-language", language);
+  };
+
+  document.querySelectorAll("[data-lang-button]").forEach((button) => {
+    button.addEventListener("click", () => {
+      applyLanguage(button.getAttribute("data-lang-button"));
+    });
+  });
+
+  applyLanguage(window.localStorage.getItem("tabanco-language") || defaultLanguage);
+</script>

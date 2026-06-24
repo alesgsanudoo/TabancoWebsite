@@ -1,0 +1,38 @@
+---
+import { defaultLanguage, mapSrc, translations } from "../data/site";
+
+const t = translations[defaultLanguage];
+---
+
+<section class="visit-section section-shell" aria-labelledby="visit-title" id="ubicacion">
+  <div class="visit-copy">
+    <div class="section-label" data-i18n="nav.location">{t.nav.location}</div>
+    <h2 id="visit-title" data-i18n="visit.title">{t.visit.title}</h2>
+    <p data-i18n="visit.body">{t.visit.body}</p>
+
+    <dl class="visit-details">
+      <div>
+        <dt data-i18n="visit.addressLabel">{t.visit.addressLabel}</dt>
+        <dd data-i18n="visit.address">{t.visit.address}</dd>
+      </div>
+      <div>
+        <dt data-i18n="visit.hoursLabel">{t.visit.hoursLabel}</dt>
+        <dd data-i18n="visit.hours">{t.visit.hours}</dd>
+      </div>
+    </dl>
+  </div>
+
+  <div class="map-frame" aria-label="Google Maps location for Tabanco Olé Tú">
+    <iframe
+      src={mapSrc}
+      width="600"
+      height="450"
+      style="border:0;"
+      allowfullscreen
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      title={t.map.title}
+      data-i18n-attr="title:map.title"
+    ></iframe>
+  </div>
+</section>

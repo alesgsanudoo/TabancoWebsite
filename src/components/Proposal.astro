@@ -1,0 +1,38 @@
+---
+import { defaultLanguage, featureKeys, menuUrl, translations } from "../data/site";
+
+const t = translations[defaultLanguage];
+---
+
+<section class="feature-band" aria-labelledby="proposal-title" id="vinos-tapas">
+  <div class="section-shell menu-shell">
+    <div class="feature-heading">
+      <div>
+        <span class="section-label" data-i18n="nav.menu">{t.nav.menu}</span>
+        <h2 id="proposal-title" data-i18n="proposal.title">{t.proposal.title}</h2>
+      </div>
+      <div class="feature-copy">
+        <p data-i18n="proposal.body">{t.proposal.body}</p>
+        <a class="menu-link" href={menuUrl} target="_blank" rel="noreferrer" data-i18n="proposal.cta">
+          {t.proposal.cta}
+        </a>
+      </div>
+    </div>
+
+    <div class="menu-board">
+      <div class="menu-visual">
+        <img class="menu-art" src="/decor/tapa.png" alt="" loading="lazy" aria-hidden="true" />
+      </div>
+      <div class="menu-cue-list" aria-label="Highlights">
+        {
+          featureKeys.map((featureKey) => (
+            <article class="menu-cue">
+              <h3 data-i18n={`features.${featureKey}.title`}>{t.features[featureKey].title}</h3>
+              <p data-i18n={`features.${featureKey}.body`}>{t.features[featureKey].body}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

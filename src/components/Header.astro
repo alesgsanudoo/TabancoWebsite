@@ -1,0 +1,68 @@
+---
+import SocialIcon from "./SocialIcon.astro";
+import { defaultLanguage, languages, menuUrl, socialLinks, translations } from "../data/site";
+
+const t = translations[defaultLanguage];
+const navItems = [
+  { href: "#quienes-somos", labelKey: "nav.about", label: t.nav.about },
+  { href: menuUrl, labelKey: "nav.menu", label: t.nav.menu, external: true },
+  { href: "#ubicacion", labelKey: "nav.location", label: t.nav.location },
+  { href: "#contacto", labelKey: "nav.contact", label: t.nav.contact },
+];
+---
+
+<header class="site-header" aria-label="Main navigation">
+  <div class="site-header-inner">
+    <a class="brand-mark" href="#inicio" aria-label="Tabanco Olé Tú">
+      <img src="/tabanco-logo.png" alt="Tabanco Olé Tú" width="112" height="112" />
+      <span>Tabanco Olé Tú</span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            data-i18n={item.labelKey}
+            target={item.external ? "_blank" : undefined}
+            rel={item.external ? "noreferrer" : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="nav-social-links" aria-label="Social media">
+      {
+        socialLinks.map((link) => (
+          <a href={link.href} target="_blank" rel="noreferrer" aria-label={link.label} title={link.label}>
+            <SocialIcon label={link.label} />
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="header-actions">
+      <a class="reserve-link" href="tel:+34611129545">
+        <span data-i18n="nav.reserve">{t.nav.reserve}</span>
+        <strong>+34 611 12 95 45</strong>
+      </a>
+
+      <div class="language-switch" aria-label="Language selector">
+        {
+          languages.map((language) => (
+            <button
+              class:list={["language-button", { "is-active": language === defaultLanguage }]}
+              type="button"
+              data-lang-button={language}
+              aria-pressed={language === defaultLanguage ? "true" : "false"}
+            >
+              {language.toUpperCase()}
+            </button>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</header>

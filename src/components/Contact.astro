@@ -1,0 +1,48 @@
+---
+import { defaultLanguage, socialLinks, translations } from "../data/site";
+
+const t = translations[defaultLanguage];
+---
+
+<section class="contact-section section-shell" aria-labelledby="contact-title" id="contacto">
+  <div class="reservation-panel">
+    <div class="reservation-copy">
+      <span class="section-label" data-i18n="nav.contact">{t.nav.contact}</span>
+      <h2 id="contact-title" data-i18n="contact.title">{t.contact.title}</h2>
+      <p data-i18n="contact.body">{t.contact.body}</p>
+    </div>
+
+    <div class="reservation-side">
+      <img class="reservation-art" src="/decor/vino.png" alt="" loading="lazy" aria-hidden="true" />
+      <div class="reservation-actions" aria-label={t.contact.phoneLabel} data-i18n-attr="aria-label:contact.phoneLabel">
+        <a class="phone-button phone-button-primary" href="tel:+34611129545">
+          <span data-i18n="contact.action">{t.contact.action}</span>
+          <strong data-i18n="contact.phoneOne">{t.contact.phoneOne}</strong>
+        </a>
+        <a class="phone-button" href="tel:+34693327690">
+          <span>WhatsApp</span>
+          <strong data-i18n="contact.phoneTwo">{t.contact.phoneTwo}</strong>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-grid">
+    <address class="contact-address">
+      <span data-i18n="visit.addressLabel">{t.visit.addressLabel}</span>
+      <strong data-i18n="visit.address">{t.visit.address}</strong>
+    </address>
+    <div class="social-block">
+      <span data-i18n="contact.socialTitle">{t.contact.socialTitle}</span>
+      <div class="social-links">
+        {
+          socialLinks.map((link) => (
+            <a href={link.href} target="_blank" rel="noreferrer">
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

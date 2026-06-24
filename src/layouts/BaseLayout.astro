@@ -1,0 +1,25 @@
+---
+import LanguageScript from "../components/LanguageScript.astro";
+import { defaultLanguage, translations } from "../data/site";
+import "../styles/global.css";
+
+const t = translations[defaultLanguage];
+---
+
+<!doctype html>
+<html lang={defaultLanguage}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta
+      name="description"
+      content={t.meta.description}
+      data-i18n-attr="content:meta.description"
+    />
+    <title>{t.meta.title}</title>
+  </head>
+  <body>
+    <slot />
+    <LanguageScript />
+  </body>
+</html>
